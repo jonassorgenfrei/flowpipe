@@ -13,8 +13,7 @@
 +-------------------------------------------------+
 """
 
-from flowpipe import Graph, Node
-from flowpipe import Evaluator
+from flowpipe import Evaluator, Graph, Node
 
 
 class CustomEvaluator(Evaluator):
