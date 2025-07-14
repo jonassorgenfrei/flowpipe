@@ -49,8 +49,8 @@ first_sum.outputs["sum"].connect(second_sum.inputs["number_2"])
 print(math_graph)
 
 # evaluate the graph using the custom evaluator
-lin_eval = CustomEvaluator()
-lin_eval.evaluate(math_graph)
+custom_eval = CustomEvaluator()
+custom_eval.evaluate(math_graph)
 
 print(f"Result of first sum: {first_sum.outputs['sum'].value}")
 print(f"Result of second sum: {second_sum.outputs['sum'].value}")
