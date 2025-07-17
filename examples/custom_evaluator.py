@@ -1,4 +1,4 @@
-"""Example of a custom Flowpipe Evaluator.
+"""Example that shows how to create a custom evaluator for flowpipe graphs.
 
 +-------------------------------------------------+
 |                      Math                       |
@@ -14,6 +14,7 @@
 """
 
 from flowpipe import Evaluator, Graph, Node
+import json
 
 
 class CustomEvaluator(Evaluator):
@@ -27,10 +28,11 @@ class CustomEvaluator(Evaluator):
         """Perform the actual node evaluation."""
         for node in nodes:
             print(f"Evaluating node: {node.name}")
+            print(f"With Metadata: {json.dumps(node.metadata, indent=2)}")
             node.evaluate()
 
 
-@Node(outputs=["sum"])
+@Node(outputs=["sum"], metadata={"key": "value"})
 def Add(number_1: int, number_2: int = 2):
     """A simple node that adds two numbers together."""
     return {"sum": number_1 + number_2}
